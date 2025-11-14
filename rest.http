@@ -1,0 +1,4 @@
+@URI = http://localhost:4040
+
+### Health Check
+GET {{URI}}/health
