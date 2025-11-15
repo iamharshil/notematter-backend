@@ -28,11 +28,16 @@ app.use(rateLimit({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
+console.log("isProd", env.isProd);
 app.use(session({
 	secret: env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true,
-	cookie: { secure: env.isProd },
+	cookie: {
+		httpOnly: true,
+		sameSite: "lax",
+		secure: env.isProd
+	},
 }));
 
 app.use(hpp());

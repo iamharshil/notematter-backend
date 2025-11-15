@@ -10,7 +10,10 @@ authRoute.get("/csrf-token", (req, res) => {
 });
 
 authRoute.post("/signup", validate(createUserSchema), AuthController.SignUp);
-authRoute.post("/login", validate(loginUserSchema), AuthController.LogIn);
+authRoute.post("/login", validate(loginUserSchema), AuthController.Login);
+
+// Verify auth
+authRoute.get("/", AuthController.verify);
 
 
 export default authRoute;

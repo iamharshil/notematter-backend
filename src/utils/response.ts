@@ -20,6 +20,12 @@ const rsp = {
 			message,
 		};
 	},
+	auth: (message = "Unauthorized") => {
+		return {
+			success: false,
+			message,
+		}
+	}
 };
 
 export default rsp;
