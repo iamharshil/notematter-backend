@@ -68,7 +68,12 @@ const AuthController = {
 				return res.status(401).json(rsp.auth());
 			}
 
-			return res.status(200).json(rsp.success(""));
+			const data = {
+				username: user.username,
+				email: user.email
+			}
+
+			return res.status(200).json(rsp.success("", data));
 		} catch (error) {
 			req.session.destroy;
 			console.error("error", error);
